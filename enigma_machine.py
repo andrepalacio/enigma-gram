@@ -60,8 +60,24 @@ class Enigma:
             indice_cifrado = self.rotor1.cifrar(indice)
             indice_cifrado = self.rotor2.cifrar(indice_cifrado)
             indice_cifrado = self.rotor3.cifrar(indice_cifrado)
-            indice_cifrado = self.reflector.reflect(indice_cifrado)
-            indice_cifrado = self.rotor3.cifrar_inverso(indice_cifrado)
+            #indice_cifrado = self.reflector.reflect(indice_cifrado)
+            #indice_cifrado = self.rotor3.cifrar_inverso(indice_cifrado)
+            #indice_cifrado = self.rotor2.cifrar_inverso(indice_cifrado)
+            #indice_cifrado = self.rotor1.cifrar_inverso(indice_cifrado)
+            mensaje_cifrado += caracteres[indice_cifrado]
+            self.rotor1.avanzar()
+            if self.rotor1.posicion_inicio == 0:
+                self.rotor2.avanzar()
+                if self.rotor2.posicion_inicio == 0:
+                    self.rotor3.avanzar()
+                    
+        return mensaje_cifrado
+
+    def descifrar(self,mensaje):
+        mensaje_cifrado = ""
+        for letra in mensaje:
+            indice = caracteres.index(letra)
+            indice_cifrado = self.rotor3.cifrar_inverso(indice)
             indice_cifrado = self.rotor2.cifrar_inverso(indice_cifrado)
             indice_cifrado = self.rotor1.cifrar_inverso(indice_cifrado)
             mensaje_cifrado += caracteres[indice_cifrado]
@@ -118,5 +134,6 @@ maquina.rotor2.setPosicion_inicio(0)
 maquina.rotor3.setPosicion_inicio(0)
 
 # Desciframos el mensaje cifrado
+mensaje_descifrado = maquina.descifrar(mensaje_cifrado)
 mensaje_descifrado = maquina.cifrar(mensaje_cifrado)
 print("Mensaje descifrado:", mensaje_descifrado)
