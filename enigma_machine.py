@@ -88,7 +88,8 @@ class Enigma:
                     self.rotor3.avanzar()
                     
         return mensaje_cifrado
-
+        
+        
 # Importamos las clases que necesitamos
 from string import ascii_letters, digits, punctuation
 
@@ -134,4 +135,5 @@ maquina.rotor3.setPosicion_inicio(0)
 
 # Desciframos el mensaje cifrado
 mensaje_descifrado = maquina.descifrar(mensaje_cifrado)
+mensaje_descifrado = maquina.cifrar(mensaje_cifrado)
 print("Mensaje descifrado:", mensaje_descifrado)
