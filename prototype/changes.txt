@@ -1,0 +1,2 @@
+Se cambiaron los rotores, sin embargo, el actual funcionamiento no permite un correcto desencriptado
+El codigo esta bajo revision
