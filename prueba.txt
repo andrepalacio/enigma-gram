@@ -1,0 +1,1 @@
+aislamiento de estructuras para funciones específicas, sin interferencia externa, membrana plasmática, citoplasmática
